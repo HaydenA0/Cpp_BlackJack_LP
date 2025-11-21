@@ -4,9 +4,8 @@
 #include <string>
 #include <vector>
 
-std::vector<u8> deck = {
-    1, 1, 2, 1, 1, 1, 1, 2,
-};
+std::vector<u8> deck = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
+
 std::vector<std::string_view> types = {"Diamond", "Heart"};
 
 void main_loop(bool &game_closed, Player &player, std::string_view user_choice)

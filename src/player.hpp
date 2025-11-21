@@ -21,7 +21,7 @@ public:
     {
         return cash;
     }
-    std::vector<Card> &get_cards()
+    std::vector<Card> get_cards()
     {
         return cards;
     }
