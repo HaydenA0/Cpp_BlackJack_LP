@@ -2,13 +2,20 @@
 #include "player.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
+
+std::vector<u8> deck = {
+    1, 1, 2, 1, 1, 1, 1, 2,
+};
+std::vector<std::string_view> types = {"Diamond", "Heart"};
 
 void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
 {
     if (user_choice == "1")
     {
         std::cout << "You choose hit !\n";
-        player.add_card(10, "Hearts");
+        Card random_card = gen_card(deck, types);
+        player.add_card(random_card.value, random_card.type);
         return;
     }
     if (user_choice == "2")
@@ -29,6 +36,7 @@ void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
         return;
     }
 }
+
 int main()
 {
     Player player;

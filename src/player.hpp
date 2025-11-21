@@ -30,4 +30,5 @@ public:
     void add_card(u8 value, std::string type);
 };
 
+Card gen_card(const std::vector<u8> &deck, const std::vector<std::string_view> &types);
 #endif
