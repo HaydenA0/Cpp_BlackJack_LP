@@ -29,7 +29,7 @@ clean:
 
 
 run: $(BIN)
-	clear ; ./$(BIN)
+	./$(BIN)
 
 .PHONY: all clean run
 

@@ -8,7 +8,7 @@ void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
     if (user_choice == "1")
     {
         std::cout << "You choose hit !\n";
-        player.add_card(10);
+        player.add_card(10, "Hearts");
         return;
     }
     if (user_choice == "2")
