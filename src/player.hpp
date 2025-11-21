@@ -10,17 +10,17 @@ private:
     std::vector<u8> cards = {};
 
 public:
-    u32 player_get_cash(void)
+    u32 &get_cash()
     {
         return cash;
     }
-    std::vector<u8> player_get_cards(void)
+    std::vector<u8> &get_cards()
     {
         return cards;
     }
-    void player_add_card(u8 card_number);
-    void player_add_cash(u32 change, bool sign); // sign can be 1(+) or 0(-1)
-    void player_print_state(void);
+    void add_card(u8 card_number);
+    void add_cash(u32 change, bool sign); // sign can be 1(+) or 0(-1)
+    void print_state();
 };
 
 #endif

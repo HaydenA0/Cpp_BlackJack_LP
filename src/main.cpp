@@ -1,53 +1,46 @@
+#include "io.hpp"
 #include "player.hpp"
 #include <iostream>
 #include <string>
 
-void print_options(void)
-{
-    std::cout << "Choose a number :\n";
-    std::cout << "1. Hit\n";
-    std::cout << "2. Stand\n";
-    std::cout << "3. quit\n";
-}
-std::string player_input(void)
-{
-    std::string input;
-    std::getline(std::cin, input);
-    return input;
-}
-
-void main_loop(std::string user_choice)
+void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
 {
     if (user_choice == "1")
     {
-        std::cout << "You chose 1 !\n";
+        std::cout << "You choose hit !\n";
+        player.add_card(10);
         return;
     }
     if (user_choice == "2")
     {
-        std::cout << "You chose 2 !\n";
+        std::cout << "You choose to stand !\n";
+        game_closed = true;
         return;
     }
     if (user_choice == "3")
     {
-        std::cout << "You chose 3 !\n";
+        std::cout << "You choose to quite !\n";
+        game_closed = true;
         return;
     }
     else
     {
         std::cout << "ERROR : Enter a valid number\n";
+        return;
     }
 }
-
-int main(void)
+int main()
 {
     Player player;
-    std::cout << "Program beginns \n";
-
-    player.player_print_state();
-    player.player_add_cash(10, 0);
-    std::cout << "Added 10 cash" << "\n";
-    player.player_print_state();
+    player.print_state();
+    bool game_closed = false;
+    while (!game_closed)
+    {
+        print_options();
+        std::string user_input = player_input();
+        main_loop(game_closed, player, user_input);
+        player.print_state();
+    }
 
     return 0;
 }

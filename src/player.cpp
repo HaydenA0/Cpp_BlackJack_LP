@@ -1,11 +1,11 @@
 #include "player.hpp"
 #include <iostream>
 
-void Player::player_add_card(u8 card_number)
+void Player::add_card(u8 card_number)
 {
     cards.push_back(card_number);
 }
-void Player::player_add_cash(u32 change, bool sign)
+void Player::add_cash(u32 change, bool sign)
 {
     if (sign)
     {
@@ -16,12 +16,13 @@ void Player::player_add_cash(u32 change, bool sign)
         cash -= change;
     }
 }
-void Player::player_print_state(void)
+void Player::print_state()
 {
-    std::cout << "Player Cash : " << cash << "\n";
+    std::cout << "Player Cash : " << (unsigned int)cash << "\n";
     std::cout << "Player Cards : " << "\n";
-    for (u8 card : cards)
+    for (const auto &card : cards)
     {
-        std::cout << card << "\n";
+        std::cout << static_cast<unsigned int>(card) << ",";
     }
+    std::cout << "\n";
 }
