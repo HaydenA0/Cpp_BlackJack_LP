@@ -61,3 +61,12 @@ Card gen_card(const std::vector<u8> &deck, const std::vector<std::string_view> &
     output.value = deck[value_index];
     return output;
 }
+u8 sum_card(const std::vector<Card> user_cards)
+{
+    u8 sum = 0;
+    for (u8 i = 0; i < user_cards.size(); i++)
+    {
+        sum += user_cards[i].value;
+    }
+    return sum;
+}

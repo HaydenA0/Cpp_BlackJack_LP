@@ -31,4 +31,5 @@ public:
 };
 
 Card gen_card(const std::vector<u8> &deck, const std::vector<std::string_view> &types);
+u8 sum_card(const std::vector<Card> user_cards);
 #endif

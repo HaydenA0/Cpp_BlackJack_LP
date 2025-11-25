@@ -15,6 +15,11 @@ void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
         std::cout << "You choose hit !\n";
         Card random_card = gen_card(deck, types);
         player.add_card(random_card.value, random_card.type);
+        if (sum_card(player.get_cards()) > 21)
+        {
+            std ::cout << "You busted" << "\n";
+            game_closed = true;
+        }
         return;
     }
     if (user_choice == "2")
