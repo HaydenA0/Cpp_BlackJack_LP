@@ -35,6 +35,11 @@ void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
             std ::cout << "You busted with " << (unsigned int)cards_sum << "\n";
             game_closed = true;
         }
+        if (cards_sum == 21)
+        {
+            std::cout << "You won !" << "\n";
+            game_closed = true;
+        }
         return;
     }
     if (user_choice == "2")
@@ -60,6 +65,12 @@ int main()
 {
     fill_deck(deck, suits);
     Player player;
+    // add 2 cards
+    Card random_card = gen_card_and_remove(deck);
+    player.add_card(random_card.value, random_card.type);
+    random_card = gen_card_and_remove(deck);
+    player.add_card(random_card.value, random_card.type);
+    // added 2 cards
     player.print_state();
     bool game_closed = false;
     while (!game_closed)

@@ -30,6 +30,7 @@ void Player::print_state()
     std::cout << "---------------------------------------------------\n";
     std::cout << "Cash  : $" << static_cast<unsigned int>(cash) << "\n";
     std::cout << "Cards :\n";
+
     if (cards.empty())
     {
         std::cout << "  (No cards)\n";
@@ -41,6 +42,8 @@ void Player::print_state()
             std::cout << "  " << std::setw(10) << std::left << card.type << " : " << std::setw(3)
                       << static_cast<unsigned int>(card.value) << "\n";
         }
+        std::cout << "  ----------------\n";
+        std::cout << "  Sum  : " << sum_card(cards) << "\n";
     }
     std::cout << "---------------------------------------------------\n";
 }
