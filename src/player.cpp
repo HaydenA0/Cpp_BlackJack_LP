@@ -4,10 +4,11 @@
 #include <random>
 #include <vector>
 
+std::random_device r_d;
+std::mt19937 gen(r_d());
+
 u8 gen_random_number(u8 min, u8 max)
 {
-    std::random_device r_d;
-    std::mt19937 gen(r_d());
     std::uniform_real_distribution<> dis(min, max);
     return static_cast<u8>(dis(gen));
 }

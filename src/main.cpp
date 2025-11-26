@@ -1,4 +1,3 @@
-#include "./deck.cpp"
 #include "io.hpp"
 #include "player.hpp"
 #include <iostream>
