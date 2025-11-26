@@ -43,7 +43,7 @@ void Player::print_state()
                       << static_cast<unsigned int>(card.value) << "\n";
         }
         std::cout << "  ----------------\n";
-        std::cout << "  Sum  : " << sum_card(cards) << "\n";
+        std::cout << "  Sum  : " << (unsigned int)sum_card(cards) << "\n";
     }
     std::cout << "---------------------------------------------------\n";
 }
