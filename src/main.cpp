@@ -1,26 +1,26 @@
+#include "./deck.cpp"
 #include "io.hpp"
 #include "player.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
 
-std::vector<Card> deck;
-
+std::vector<Card> deck = {};
 std::vector<std::string> suits = {"Diamond", "Heart", "Club", "Spade"};
-
-for (const auto &suit : suits)
+void fill_deck(std::vector<Card> &deck, std::vector<std::string> suits)
 {
-    for (int value = 1; value <= 9; ++value)
+    for (const auto &suit : suits)
     {
-        deck.emplace_back(value, suit);
-    }
-    for (int i = 0; i < 4; ++i)
-    {
-        deck.emplace_back(10, suit);
+        for (int value = 1; value <= 9; ++value)
+        {
+            deck.emplace_back(value, suit);
+        }
+        for (int i = 0; i < 4; ++i)
+        {
+            deck.emplace_back(10, suit);
+        }
     }
 }
-
-std::vector<std::string_view> types = {"Diamond", "Heart"};
 
 void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
 {
