@@ -1,4 +1,5 @@
 #include "player.hpp"
+#include <algorithm>
 #include <iostream>
 #include <random>
 #include <vector>
@@ -52,10 +53,13 @@ void Player::add_card(u8 value, std::string type)
     cards.push_back(card_to_add);
 }
 
-Card gen_card(const std::vector<Card> &deck)
+Card gen_card_and_remove(std::vector<Card> &deck)
 {
     u8 value_index = gen_random_number(0, deck.size());
-    return deck[value_index];
+    Card to_return = deck[value_index];
+    deck.erase(deck.begin() + value_index);
+
+    return to_return;
 }
 u8 sum_card(const std::vector<Card> user_cards)
 {

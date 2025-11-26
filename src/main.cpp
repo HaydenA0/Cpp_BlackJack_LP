@@ -27,7 +27,7 @@ void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
     if (user_choice == "1")
     {
         std::cout << "You choose hit !\n";
-        Card random_card = gen_card(deck);
+        Card random_card = gen_card_and_remove(deck);
         player.add_card(random_card.value, random_card.type);
         u8 cards_sum = sum_card(player.get_cards());
         if (cards_sum > 21)
@@ -58,6 +58,7 @@ void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
 
 int main()
 {
+    fill_deck(deck, suits);
     Player player;
     player.print_state();
     bool game_closed = false;

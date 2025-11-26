@@ -31,5 +31,8 @@ clean:
 run: $(BIN)
 	./$(BIN)
 
+debug : $(BIN) 
+	gdb $(BIN)
+
 .PHONY: all clean run
 

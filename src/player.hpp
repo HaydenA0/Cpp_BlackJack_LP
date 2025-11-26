@@ -36,6 +36,6 @@ public:
     void add_card(u8 value, std::string type);
 };
 
-Card gen_card(const std::vector<Card> &deck);
+Card gen_card_and_remove(std::vector<Card> &deck);
 u8 sum_card(const std::vector<Card> user_cards);
 #endif
