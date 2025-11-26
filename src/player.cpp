@@ -52,14 +52,10 @@ void Player::add_card(u8 value, std::string type)
     cards.push_back(card_to_add);
 }
 
-Card gen_card(const std::vector<u8> &deck, const std::vector<std::string_view> &types)
+Card gen_card(const std::vector<Card> &deck)
 {
-    Card output;
     u8 value_index = gen_random_number(0, deck.size());
-    u8 type_index = gen_random_number(0, types.size());
-    output.type = types[type_index];
-    output.value = deck[value_index];
-    return output;
+    return deck[value_index];
 }
 u8 sum_card(const std::vector<Card> user_cards)
 {

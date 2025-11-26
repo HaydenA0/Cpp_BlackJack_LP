@@ -8,6 +8,12 @@ struct Card
 {
     u8 value;
     std::string type;
+    Card() : value(0), type("Invalid")
+    {
+    }
+    Card(u8 value_val, std::string type_val) : value(value_val), type(type_val)
+    {
+    }
 };
 
 class Player
@@ -30,6 +36,6 @@ public:
     void add_card(u8 value, std::string type);
 };
 
-Card gen_card(const std::vector<u8> &deck, const std::vector<std::string_view> &types);
+Card gen_card(const std::vector<Card> &deck);
 u8 sum_card(const std::vector<Card> user_cards);
 #endif
