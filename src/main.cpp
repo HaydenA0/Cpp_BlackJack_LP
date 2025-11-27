@@ -55,7 +55,7 @@ void main_loop(bool &game_closed, Player &player, std::string_view user_choice)
     }
     else
     {
-        std::cout << "ERROR : Enter a valid number\n";
+        std::cout << "ERROR : Enter a valid number :\n";
         return;
     }
 }
