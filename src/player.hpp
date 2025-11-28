@@ -23,6 +23,7 @@ private:
     std::vector<Card> cards = {};
 
 public:
+    bool is_dealer;
     u32 get_cash()
     {
         return cash;
@@ -32,10 +33,10 @@ public:
         return cards;
     }
     void add_cash(u32 change, bool sign); // sign can be 1(+) or 0(-1)
-    void print_state();
     void add_card(u8 value, std::string type);
 };
 
 Card gen_card_and_remove(std::vector<Card> &deck);
 u8 sum_card(const std::vector<Card> user_cards);
+void print_state(Player &player);
 #endif

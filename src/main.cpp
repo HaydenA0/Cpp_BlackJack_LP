@@ -64,20 +64,25 @@ int main()
 {
     fill_deck(deck, suits);
     Player player;
+    player.is_dealer = true;
+    // player.is_dealer = false;
     // add 2 cards
     Card random_card = gen_card_and_remove(deck);
     player.add_card(random_card.value, random_card.type);
     random_card = gen_card_and_remove(deck);
     player.add_card(random_card.value, random_card.type);
+    // add 100$ to the player
+    player.add_cash(100, 1);
+
     // added 2 cards
-    player.print_state();
     bool game_closed = false;
     while (!game_closed)
     {
-        print_options();
+        print_state(player);
+        new_game_print_options();
+        main_loop_print_options();
         std::string user_input = player_input();
         main_loop(game_closed, player, user_input);
-        player.print_state();
     }
 
     return 0;

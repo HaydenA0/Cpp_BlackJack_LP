@@ -1,7 +1,7 @@
 
 #include "io.hpp"
 #include <iostream>
-void print_options()
+void main_loop_print_options()
 {
     std::cout << "Choose a number :\n";
     std::cout << "1. Hit\n";
