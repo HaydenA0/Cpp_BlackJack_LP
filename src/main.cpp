@@ -121,10 +121,10 @@ void game_loop()
         }
         else
         {
-            while (dealer.cards_sum() <= 17)
+            while (dealer.cards_sum() < 17)
             {
-                dealer.add_cards(deck.request_cards(1));
                 std::cout << "Dealer have " << (unsigned int)dealer.cards_sum() << "\n";
+                dealer.add_cards(deck.request_cards(1));
             }
             if (dealer.cards_sum() > 21)
             {
