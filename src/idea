@@ -1,0 +1,25 @@
+if game is on
+  player.takeCards(Deck.request(2 cards))
+  dealer.takeCards(Deck.request(2 cards))
+  while (player.cardsSum() < 21 ) 
+    choice = requestPlayerChoice()
+    if choice = Hit :
+      player.addCard()
+    if choice = Stand :
+      break
+  if (player.cardsSum > 21) 
+    say (u busted with {player.cardsSum})
+    game.lost = true
+    break
+  else 
+    dealer.showCard() 
+    while (dealer.cardsSum <= 17)
+      dealer.addCard()
+    if (dealer.cardsSum > 21) 
+      game.lost = false
+      break
+    else if (player.cardsSum < dealer.cardsSum)
+      game.lost = true
+      break
+    else 
+

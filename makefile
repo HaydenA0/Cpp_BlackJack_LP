@@ -1,4 +1,4 @@
-CXX = g++
+CXX = clang++
 CXXFLAGS = -Wall -Wextra -std=c++17 -Iincludes -ggdb
 
 SRC_DIR = src
@@ -9,7 +9,7 @@ SRCS = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 
 
-all: $(BIN)
+all: clean $(BIN) run
 
 
 $(BIN): $(OBJS)
