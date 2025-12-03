@@ -39,6 +39,16 @@ private:
 public:
     void add_cards(std::vector<Card> cards_to_add);
     u8 cards_sum();
+    void set_cash(u32 cash_to_set);
+    void change_cash(u32 cash_diff, bool sign); // 1 -> +1, 0 -> -1
+    u32 get_cash()
+    {
+        return cash;
+    }
+    void reset_cards()
+    {
+        cards = {};
+    }
 };
 
 class Dealer : public Player
@@ -48,6 +58,7 @@ class Dealer : public Player
 
 class Game
 {
+public:
     bool is_on;
     bool lost;
 };

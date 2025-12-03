@@ -46,3 +46,19 @@ u8 Player::cards_sum()
     }
     return sum;
 }
+void Player::set_cash(u32 cash_to_set)
+{
+    cash = cash_to_set;
+}
+void Player::change_cash(u32 cash_diff, bool sign)
+// 1 -> +1, 0 -> -1
+{
+    if (sign)
+    {
+        cash = cash + cash_diff;
+    }
+    else
+    {
+        cash = cash - cash_diff;
+    }
+}
